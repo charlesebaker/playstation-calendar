@@ -1,11 +1,20 @@
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { useEvents } from "@hooks";
+import { isValidYearMonth, getCurrentYearMonth } from "@utils";
 import { Event } from "@types";
 
 export const Calendar = () => {
   const { year, month } = useParams<{ year: string; month: string }>();
+  const navigate = useNavigate();
   const { events, loading, error } = useEvents(year, month);
+
+  useEffect(() => {
+    if (!isValidYearMonth(year, month)) {
+      navigate(`/${getCurrentYearMonth()}`);
+    }
+  }, [year, month, navigate]);
 
   if (loading) return <div>Loading events...</div>;
   if (error) return <div>Error fetching events: {error.message}</div>;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { parseISO, format } from "date-fns";
 
 import { fetchEvents } from "@service/api";
+import { getYearMonthFromISODate } from "@utils";
 import { Event } from "@types";
 
 /**
@@ -28,7 +28,7 @@ export const useEvents = (year: string, month: string) => {
         setEvents(
           evts.filter((evt: Event) => {
             try {
-              return format(parseISO(evt.launchDate), "yyyy/M") === `${year}/${month}`;
+              return getYearMonthFromISODate(evt.launchDate) === `${year}/${month}`;
             } catch (error) {
               console.error(`Error parsing launch date (${evt.launchDate}): ${error}`);
 
