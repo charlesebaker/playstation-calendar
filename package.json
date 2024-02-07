@@ -6,9 +6,18 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext js,jsx,ts,tsx,json --fix --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --ext js,jsx,ts,tsx --fix --report-unused-disable-directives --max-warnings 0",
     "format": "prettier . --ext js,jsx,ts,tsx,css,md,json --write",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "yarn lint"
+    ],
+    "**/*.{js,jsx,ts,tsx,html,css,md,json}": [
+      "yarn format"
+    ]
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -23,6 +32,8 @@
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "husky": "^9.0.10",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
