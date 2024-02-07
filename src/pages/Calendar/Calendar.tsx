@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useEvents } from "@hooks";
 import { isValidYearMonth, getCurrentYearMonth } from "@utils";
@@ -13,6 +14,8 @@ export const Calendar = () => {
   useEffect(() => {
     if (!isValidYearMonth(year, month)) {
       navigate(`/${getCurrentYearMonth()}`);
+
+      toast.error("Invalid year or month. Redirected to current year and month.");
     }
   }, [year, month, navigate]);
 
