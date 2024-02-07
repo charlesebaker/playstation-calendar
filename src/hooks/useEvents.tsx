@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import { parseISO, format } from 'date-fns';
+import { useState, useEffect } from "react";
+import { parseISO, format } from "date-fns";
 
-import { fetchEvents } from '@service/api';
-import { Event } from '@types';
+import { fetchEvents } from "@service/api";
+import { Event } from "@types";
 
 /**
  * Custom hook to fetch and filter events by year and month.
@@ -28,7 +28,7 @@ export const useEvents = (year: string, month: string) => {
         setEvents(
           evts.filter((evt: Event) => {
             try {
-              return format(parseISO(evt.launchDate), 'yyyy/M') === `${year}/${month}`;
+              return format(parseISO(evt.launchDate), "yyyy/M") === `${year}/${month}`;
             } catch (error) {
               console.error(`Error parsing launch date (${evt.launchDate}): ${error}`);
 

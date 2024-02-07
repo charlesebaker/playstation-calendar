@@ -1,7 +1,7 @@
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
-import { useEvents } from '@hooks';
-import { Event } from '@types';
+import { useEvents } from "@hooks";
+import { Event } from "@types";
 
 export const Calendar = () => {
   const { year, month } = useParams<{ year: string; month: string }>();
