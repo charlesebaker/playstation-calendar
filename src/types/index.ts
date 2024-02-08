@@ -8,3 +8,9 @@ export type Event = {
   learnMoreLink: string;
   purchaseLink: string;
 };
+
+export type EventDate = {
+  date: Date;
+  event: Event;
+  active: boolean;
+};
