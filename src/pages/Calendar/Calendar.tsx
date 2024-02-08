@@ -4,10 +4,10 @@ import { toast } from "react-toastify";
 
 import { Loading, ErrorBox, Navigation, EventsGrid } from "@components";
 import { useEvents } from "@hooks";
-import { isValidYearMonth, getCurrentYearMonth } from "@utils";
+import { isValidYearMonth, getCurrentYearMonth, getCurrentYear, getCurrentMonth } from "@utils";
 
 export const Calendar = () => {
-  const { year, month } = useParams<{ year: string; month: string }>();
+  const { year = getCurrentYear(), month = getCurrentMonth() } = useParams();
   const navigate = useNavigate();
   const { events, loading, error } = useEvents(year, month, true);
   const [isValidDate, setIsValidDate] = useState(false);

@@ -17,6 +17,14 @@ export const getCurrentYearMonth = (): string => {
   return formatDate(new Date(), "yyyy/M");
 };
 
+export const getCurrentYear = (): string => {
+  return formatDate(new Date(), "yyyy");
+};
+
+export const getCurrentMonth = (): string => {
+  return formatDate(new Date(), "M");
+};
+
 export const getYearMonthFromISODate = (date: string): string => {
   return formatDate(parseISO(date), "yyyy/M");
 };

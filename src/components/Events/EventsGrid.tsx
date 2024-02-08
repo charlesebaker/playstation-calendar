@@ -30,8 +30,8 @@ export const EventsGrid = ({ events, year, month }: EventsGridProps) => {
 
   useEffect(() => {
     setEventDates(
-      datesInMontlyView.map((date) => {
-        const event = events.find((event) => {
+      datesInMontlyView.map((date: Date) => {
+        const event = events.find((event: Event) => {
           return new Date(event.launchDate).toDateString() === date.toDateString();
         });
 
@@ -39,7 +39,7 @@ export const EventsGrid = ({ events, year, month }: EventsGridProps) => {
           date,
           event: event ?? null,
           active: date.getMonth() === new Date(`${year}/${month}`).getMonth(),
-        };
+        } as EventDate;
       }),
     );
   }, [datesInMontlyView, events, year, month]);

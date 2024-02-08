@@ -2,10 +2,16 @@ import { useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
-import { formatYearMonth, getPrevMonth, getNextMonth } from "@utils";
+import {
+  formatYearMonth,
+  getCurrentYear,
+  getCurrentMonth,
+  getPrevMonth,
+  getNextMonth,
+} from "@utils";
 
 export const Navigation = () => {
-  const { year, month } = useParams<{ year: string; month: string }>();
+  const { year = getCurrentYear(), month = getCurrentMonth() } = useParams();
   const navigate = useNavigate();
 
   const handleGoToPrevMonth = useCallback(() => {
