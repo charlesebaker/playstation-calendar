@@ -1,6 +1,6 @@
 # PlayStation Calendar
 
-A calendar application that displays a collection of upcoming video games. It will display new PlayStation game launches.
+A calendar application that displays a collection of upcoming video games. It will display new PlayStation game launches. You can check the [live site](https://playstation-calendar.netlify.app).
 
 ## Requirements
 
