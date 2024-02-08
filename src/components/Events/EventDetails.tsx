@@ -17,7 +17,9 @@ export const EventDetails = ({ event }: EventDetailsProps) => {
       />
       <div className="flex h-full w-3/4 flex-col justify-center gap-4 px-8 py-4 md:w-3/4 md:gap-6 md:px-16 md:py-6 lg:gap-8 lg:px-24 lg:py-8 xl:w-1/2 xl:px-32">
         <h1 className="text-xl font-bold text-white md:text-2xl lg:text-3xl">{event.title}</h1>
-        <p className="text-normal text-pretty text-gray-300 md:text-lg">{event.summary}</p>
+        <summary className="text-normal list-none text-pretty text-gray-300 md:text-lg">
+          {event.summary}
+        </summary>
         <p className="text-normal font-bold text-gray-200 md:text-lg">
           Available {formatDate(event.launchDate, "MMMM do yyy")}
         </p>
