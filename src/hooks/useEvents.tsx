@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { fetchEvents } from "@service/api";
-import { getYearMonthFromISODate, getDatesInMonthlyView } from "@utils";
+import { getDatesInMonthlyView, randomizeDatesOfEvents } from "@utils";
 import { Event } from "@types";
 
 /**
@@ -36,31 +36,17 @@ export const useEvents = (year: string, month: string, includesNeighbourDates: b
 
           localStorage.setItem(key, JSON.stringify(evts));
 
-          // Remove cached events after 1 minute.
-          setTimeout(() => {
-            localStorage.removeItem(key);
-          }, 60000);
+          // Remove cached events after 3 minute.
+          setTimeout(
+            () => {
+              localStorage.removeItem(key);
+            },
+            1000 * 60 * 3,
+          );
         }
 
-        setEvents(
-          evts.filter((evt: Event) => {
-            try {
-              if (includesNeighbourDates) {
-                return getDatesInMonthlyView(year, month).some(
-                  (date: Date) =>
-                    getYearMonthFromISODate(evt.launchDate) ===
-                    getYearMonthFromISODate(date.toISOString()),
-                );
-              }
-
-              return getYearMonthFromISODate(evt.launchDate) === `${year}/${month}`;
-            } catch (error) {
-              console.error(`Error parsing launch date (${evt.launchDate}): ${error}`);
-
-              return false;
-            }
-          }),
-        );
+        // Rearrange dates of the events to match the monthly view.
+        setEvents(randomizeDatesOfEvents(evts, getDatesInMonthlyView(year, month)));
       } catch (error) {
         setError(error as Error);
       }
