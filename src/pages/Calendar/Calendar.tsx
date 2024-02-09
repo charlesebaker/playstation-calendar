@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { Loading, ErrorBox, Navigation, EventsGrid } from "@components";
+import { Loading, ErrorBox, Navigation, EventsGrid, Divider } from "@components";
 import { useEvents } from "@hooks";
 import { isValidYearMonth, getCurrentYearMonth, getCurrentYear, getCurrentMonth } from "@utils";
 
@@ -30,12 +30,17 @@ export const Calendar = () => {
   return (
     <div className="p-8">
       <Navigation />
+      <Divider height={1} />
       {loading ? (
         <Loading />
       ) : error ? (
         <ErrorBox message={error?.message ?? ""} />
       ) : (
-        <EventsGrid events={events} year={year} month={month} />
+        <>
+          <EventsGrid events={events} year={year} month={month} />
+          <Divider height={1} />
+          <Navigation />
+        </>
       )}
     </div>
   );

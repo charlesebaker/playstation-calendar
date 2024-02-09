@@ -23,7 +23,7 @@ export const Navigation = () => {
   }, [year, month, navigate]);
 
   return (
-    <div className="flex w-full justify-between border-b border-gray-300 py-4">
+    <div className="flex w-full justify-between py-4">
       <button onClick={handleGoToPrevMonth}>
         <ChevronLeftIcon className="h-5 w-5" />
       </button>
