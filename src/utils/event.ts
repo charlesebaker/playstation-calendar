@@ -8,7 +8,7 @@ export const randomizeDatesOfEvents = (events: Event[], dates: Date[]) => {
     // Create a new event object with the new launch date.
     const newEvt = {
       ...evt,
-      launchDate: dates[idx].toISOString(),
+      launchDate: dates[idx]?.toISOString(),
     };
 
     // Remove the date from the array to avoid reusing it.
