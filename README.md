@@ -49,7 +49,8 @@ A calendar application that displays a collection of upcoming video games. It wi
   - Added a custom hook to use events filtered by year and month.
 - Setup component structure for frontend and added edge case handlers like invalid URLs.
 - Built responsive calendar view, it's worth noting that I showed a full real-world calendar, which means the calendar also includes the ending days of prev month and the starting days of the next month with disabled styles.
-- Added events caching feature for 1 min to provide a better user experience.
+- Placed a navigation bar at the bottom for better UX in large screens, which a user has to scroll down to see ending days' events.
+- Added events caching feature for 3 min to provide a better user experience.
 
 ## Trade-offs
 
