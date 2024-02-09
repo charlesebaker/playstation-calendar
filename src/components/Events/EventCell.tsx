@@ -29,7 +29,7 @@ export const EventCell = ({ index, eventDate, handleClickEvent }: EventCellProps
           <img
             src={`/assets/${eventDate.event.imageFilenameThumb}.webp`}
             alt={eventDate.event.title}
-            className="h-full w-full"
+            className={twMerge("h-full w-full", eventDate.active ? "opacity-100" : "opacity-60")}
           />
         )}
         <span
@@ -37,7 +37,7 @@ export const EventCell = ({ index, eventDate, handleClickEvent }: EventCellProps
             "absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full font-semibold",
             eventDate.active && eventDate.event ? "bg-blue-600 text-gray-100" : "",
             eventDate.active && !eventDate.event ? "bg-transparent text-black" : "",
-            !eventDate.active && eventDate.event ? "bg-blue-500 text-gray-200" : "",
+            !eventDate.active && eventDate.event ? "bg-blue-400 text-gray-200" : "",
             !eventDate.active && !eventDate.event ? "text-gray-600" : "",
           )}
         >
