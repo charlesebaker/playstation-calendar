@@ -30,7 +30,7 @@ export const Calendar = () => {
   return (
     <div className="p-8">
       <Navigation />
-      <Divider height={1} />
+      <Divider variant="xs" />
       {loading ? (
         <Loading />
       ) : error ? (
@@ -38,7 +38,7 @@ export const Calendar = () => {
       ) : (
         <>
           <EventsGrid events={events} year={year} month={month} />
-          <Divider height={1} />
+          <Divider variant="xs" />
           <Navigation />
         </>
       )}
