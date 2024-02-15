@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 
-import { useWindowWidth } from "@hooks";
-import { getWeekDays, getDatesInMonthlyView, findClosestGreaterDivisibleNumber } from "@utils";
+import { useWindowWidth } from "@hooks/useWindowWidth";
+import { getWeekDays, getDatesInMonthlyView } from "@utils/date";
+import { findClosestGreaterDivisibleNumber } from "@utils/number";
 import { Event, EventDate } from "@types";
 import { EventCell } from "./EventCell";
 import { EventDetails } from "./EventDetails";

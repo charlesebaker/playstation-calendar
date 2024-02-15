@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 
 import { fetchEvents } from "@service/api";
-import { getDatesInMonthlyView, randomizeDatesOfEvents } from "@utils";
+import { getDatesInMonthlyView } from "@utils/date";
+import { randomizeDatesOfEvents } from "@utils/event";
 import { Event } from "@types";
 
 /**

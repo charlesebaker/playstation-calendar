@@ -2,9 +2,18 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { Loading, ErrorBox, Navigation, EventsGrid, Divider } from "@components";
-import { useEvents } from "@hooks";
-import { isValidYearMonth, getCurrentYearMonth, getCurrentYear, getCurrentMonth } from "@utils";
+import { Loading } from "@components/Loading";
+import { ErrorBox } from "@components/ErrorBox";
+import { Navigation } from "@components/Navigation";
+import { EventsGrid } from "@components/Events";
+import { Divider } from "@components/Divider";
+import { useEvents } from "@hooks/useEvents";
+import {
+  isValidYearMonth,
+  getCurrentYearMonth,
+  getCurrentYear,
+  getCurrentMonth,
+} from "@utils/date";
 
 export const Calendar = () => {
   const { year = getCurrentYear(), month = getCurrentMonth() } = useParams();

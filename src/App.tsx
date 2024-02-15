@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
 import { Calendar } from "@pages/Calendar";
-import { getCurrentYearMonth } from "@utils";
+import { getCurrentYearMonth } from "@utils/date";
 
 const App = () => {
   return (

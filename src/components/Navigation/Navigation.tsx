@@ -8,7 +8,7 @@ import {
   getCurrentMonth,
   getPrevMonth,
   getNextMonth,
-} from "@utils";
+} from "@utils/date";
 
 export const Navigation = () => {
   const { year = getCurrentYear(), month = getCurrentMonth() } = useParams();

@@ -1,6 +1,6 @@
 import { format as formatDate } from "date-fns";
 
-import { ButtonLink } from "@components";
+import { ButtonLink } from "@components/ButtonLink";
 import { Event } from "@types";
 
 interface EventDetailsProps {
