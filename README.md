@@ -35,6 +35,7 @@ A calendar application that displays a collection of upcoming video games. It wi
 
 - `yarn lint` to check and fix lint errors
 - `yarn format` to enforce coding styles
+- `yarn test` to run automated tests
 
 ## Decisions Made
 

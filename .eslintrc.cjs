@@ -12,4 +12,12 @@ module.exports = {
   rules: {
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
   },
+  overrides: [
+    {
+      files: ["**/*.{js,jsx,ts,tsx}"],
+      env: {
+        jest: true,
+      },
+    },
+  ],
 };
